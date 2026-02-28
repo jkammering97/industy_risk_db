@@ -213,7 +213,7 @@ with left_col:
             margin=dict(t=52, l=8, r=8, b=8),
             paper_bgcolor="rgba(0,0,0,0)",
         )
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
 with right_col:
     with st.container(border=True):
@@ -222,7 +222,7 @@ with right_col:
         if sunburst_fig is None:
             st.info(sunburst_msg or "No trade share rows available.")
         else:
-            st.plotly_chart(sunburst_fig, width="stretch")
+            st.plotly_chart(sunburst_fig, use_container_width=True)
 
 if supplier_df.empty:
     # If reporter code mapping differs (e.g., 040 vs 40), surface available data.
@@ -241,14 +241,14 @@ if supplier_df.empty:
             f"Available reporter_code values in mart.supplier_risk: {', '.join(available_codes)}"
         )
         with st.expander("Debug: unfiltered supplier_risk rows"):
-            st.dataframe(supplier_all_df, width="stretch")
+            st.dataframe(supplier_all_df, use_container_width=True)
 
 tabs = st.tabs(["Supplier Risk", "HHI Layer", "Logistics Layer", "Policy Layer"])
 with tabs[0]:
-    st.dataframe(supplier_df, width="stretch")
+    st.dataframe(supplier_df, use_container_width=True)
 with tabs[1]:
-    st.dataframe(hhi_df, width="stretch")
+    st.dataframe(hhi_df, use_container_width=True)
 with tabs[2]:
-    st.dataframe(logistics_df, width="stretch")
+    st.dataframe(logistics_df, use_container_width=True)
 with tabs[3]:
-    st.dataframe(policy_df, width="stretch")
+    st.dataframe(policy_df, use_container_width=True)
