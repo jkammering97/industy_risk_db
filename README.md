@@ -1,33 +1,13 @@
 # Industry Risk DB
 
-This repository is a small supply-risk analytics platform focused on import and trade exposure. It combines UN Comtrade trade data with derived risk signals so procurement, operations, and analytics teams can see which supplier countries create the most concentration, logistics, and policy risk.
+- This repository holds a *supply-chain risk analytics platform* focused on import and its implied trade exposure. 
+- It combines UN Comtrade trade data with derived risk signals so procurement, operations, and analytics teams can see which supplier countries create the most concentration, logistics, and policy risk.
+- Value proposition: Through improved understanding of interdependencies in the sourcing environment, decisions can be priced for risk at a current rate, ensuring *plannability* and *financial stability*.
 
-For business readers, the core idea is simple: the project turns raw trade flows into a ranked supplier-risk view that helps answer, "Which sourcing relationships are most fragile, and why?"
-
-For developers, the repository contains two working paths:
+The repository contains two working streams:
 
 - A lightweight prototype path using Azure Table Storage (or local sample data) for quick UI demos.
 - A more robust Azure SQL + dbt path that ingests raw trade data, models it into staging and mart layers, and powers the SQL-backed dashboard.
-
-## What The System Produces
-
-The project organizes risk into three layers:
-
-- `HHI` (concentration risk): measures how dependent a reporter country is on a small number of suppliers for a given HS product code.
-- `Logistics` risk: estimates supply-chain fragility using lead time, lead time variability, freight pressure, and disruption signals.
-- `Policy` risk: estimates regulatory exposure using tariff, sanctions, export-control, and policy-volatility signals.
-
-These are blended into a supplier-level score in the SQL mart:
-
-- `overall_risk = 50% HHI + 30% logistics + 20% policy`
-
-That weighting is implemented in the dbt model for `mart.supplier_risk`.
-
-## Who This Is For
-
-- Business stakeholders: use the dashboards to identify sourcing concentration, supplier-country exposure, and candidate diversification priorities.
-- Data and analytics teams: extend the ingestion logic, refine scoring, and build downstream models from the SQL marts.
-- Engineers: deploy the Azure resources, run the ingestion pipeline, and maintain the Streamlit apps and dbt project.
 
 ## End-To-End Dataflow
 
@@ -108,6 +88,27 @@ flowchart LR
     style marts fill:#FFF5F8,stroke:#F48FB1,stroke-width:2px;
     style serve fill:#F2FCFD,stroke:#80DEEA,stroke-width:2px;
 ```
+
+## What The System Produces
+
+The project organizes risk into three layers:
+
+- `HHI` (concentration risk): measures how dependent a reporter country is on a small number of suppliers for a given HS product code.
+- `Logistics` risk: estimates supply-chain fragility using lead time, lead time variability, freight pressure, and disruption signals.
+- `Policy` risk: estimates regulatory exposure using tariff, sanctions, export-control, and policy-volatility signals.
+
+These are blended into a supplier-level score in the SQL mart:
+
+- `overall_risk = 50% HHI + 30% logistics + 20% policy`
+
+That weighting is implemented in the dbt model for `mart.supplier_risk`.
+
+## Who This Is For
+
+- Business stakeholders: use the dashboards to identify sourcing concentration, supplier-country exposure, and candidate diversification priorities.
+- Data and analytics teams: extend the ingestion logic, refine scoring, and build downstream models from the SQL marts.
+- Engineers: deploy the Azure resources, run the ingestion pipeline, and maintain the Streamlit apps and dbt project.
+
 
 ## Repository Structure
 
