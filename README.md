@@ -1,8 +1,8 @@
 # Industry Risk DB
 
-- This repository holds a **supply-chain risk analytics platform** focused on import and its implied trade exposure. 
-- It combines UN Comtrade trade data with derived risk signals so procurement, operations, and analytics teams can see which supplier countries create the most concentration, logistics, and policy risk.
-- **Value proposition**: Through improved understanding of interdependencies in the sourcing environment, decisions can be priced for risk at a current rate, ensuring **plannability** and **financial stability**.
+This repository holds a **supply-chain risk analytics platform** focused on import and its implied trade exposure. It combines UN Comtrade trade data with derived risk signals so procurement, operations, and analytics teams can see which supplier countries create the most concentration, logistics, and policy risk.
+
+**Value proposition**: Through improved understanding of interdependencies in the sourcing environment, decisions can be priced for risk at a current rate, ensuring **plannability** and **financial stability**.
 
 The repository contains two working streams:
 
